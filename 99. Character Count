@@ -1,0 +1,16 @@
+// Character Count
+
+function example(str) {
+	var arr = str.split("");
+	var obj = {};
+	for(var i = 0; i < arr.length; i++) {
+		if(!(arr[i] in obj)) {
+			obj[arr[i]] = 1;
+		} else {
+			obj[arr[i]]++;
+		}
+	}
+	return obj;
+}
+
+example("mississippi");
