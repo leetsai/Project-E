@@ -2,33 +2,34 @@
 // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
 function getProduct(arr) {
-  var product = 1;
-    for(var j = 0; j < arr.length; j++) {
-        product *= arr[j];
-    }
-  return product;
+	var product = 1;
+	for(var j = 0; j < arr.length; j++) {
+		product *= arr[j];
+	}
+	return product;
 }
 
 function findLCM(num) {
-  var arr = [];
-  for(var i = 1; i <= num; i++) {
-    arr.push(i);
-  }
-  
-  var finalArr = [];
-  var count = 1;
-  while(count <= num) {
-    finalArr.push(arr[0]);
-    var temp = arr[0];
-    for(var j = 0; j < arr.length; j++) {
-      if(arr[j] % temp === 0) {
-        arr[j] /= temp;
-      }
-    }
-    arr.shift();
-    count++;
-  }
-  return getProduct(finalArr);
+	var arr = [];
+	for(var i = 1; i <= num; i++) {
+		arr.push(i);
+	}
+	
+	var finalArr = [];
+	var count = 1;
+	while(count <= num) {
+		finalArr.push(arr[0]);
+		var temp = arr[0];
+		for(var j = 0; j < arr.length; j++) {
+			if(arr[j] % temp === 0) {
+				arr[j] /= temp;
+			}
+		}
+		arr.shift();
+		count++;
+	}
+	
+	return getProduct(finalArr);
 }
 
-findLCM(20);
+findLCM(7);
