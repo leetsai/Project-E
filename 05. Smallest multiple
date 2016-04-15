@@ -32,4 +32,4 @@ function findLCM(num) {
 	return getProduct(finalArr);
 }
 
-findLCM(7);
+findLCM(20);
