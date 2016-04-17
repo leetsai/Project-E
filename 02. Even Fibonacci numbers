@@ -4,26 +4,19 @@
 
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-function findFibonacci(upUntil) {
-	var arr = [1,2];
-	for(var i = 1; arr[i] <= upUntil; i++) {
-		arr.push(arr[i - 1] + arr[i]);
+function findFibUnder(num, divisibleBy) {
+	var a = 0, b = 0, c = 1, arr = [];
+	while(c < num) {
+		if(c % divisibleBy === 0) {
+			arr.push(c);
+		}
+		a = b;
+		b = c;
+		c = a + b;
 	}
-	arr.pop();
 	return arr;
 }
 
-var fullArr = findFibonacci(4000000);
-
-function findSum(arr, divisibleBy) {
-	var sum = 0;
-	for(var i = 0; i < arr.length; i++) {
-		if(arr[i] % divisibleBy === 0) {
-			console.log(sum);
-			sum += arr[i];
-		}
-	}
-	return sum;	
-}
-
-findSum(fullArr, 2);
+findFibUnder(4000000, 2).reduce(function(a,b) {
+	return a + b;
+});
